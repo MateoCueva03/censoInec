@@ -1,0 +1,71 @@
+<ion-header >
+  <ion-toolbar color="light" >
+    <ion-buttons slot="start">
+      <ion-button (click)="logout()">
+        <ion-icon slot="icon-only" name="log-out"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <img class="censo" style="width: 70%; margin: 10px;" src="https://censoenlinea.censoecuador.gob.ec/sipe-captura-war/imagenes/logo-censo-ecuador.png" alt="">
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <h3 style="font-size: medium; text-align: center;" class="encabezado">Ingrese los datos de la persona censada</h3>
+
+  <ion-card>
+    <ion-item>
+      <ion-label>Nombre:</ion-label>
+      <ion-input [(ngModel)]="data.informacionCensado.nombre" type="string"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Numero cedula:</ion-label>
+      <ion-input [(ngModel)]="data.informacionCensado.cedula" type="number"> </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Miembros:</ion-label>
+      <ion-input [(ngModel)]="data.informacionCensado.miembros" type="number"></ion-input>
+    </ion-item>
+
+  <div class="preview">
+      <ion-item *ngIf="!ingresarEnable">
+        <ion-label class="normal">
+          Foto domicilio:
+        </ion-label>
+        <ion-buttons slot="end">
+          <ion-button>
+            <label for="file-upload">
+              <ion-icon slot="icon-only" name="images"></ion-icon>
+            </label>
+            <input (change)="newImageUpload($event)" id="file-upload" style="display: none" type="file" accept="image/*">
+          </ion-button>
+        </ion-buttons>
+      </ion-item>
+  </div>
+
+  <div class="GetCoordinates">
+    <h5 style="font-size: small; text-align: center;">Clic en el boton para obtener tu ubicación en coordenadas</h5>
+
+    <ion-button style="margin: 10px;" expand="block" (click)=addDirection() slot="end">
+      <ion-icon name="compass"></ion-icon>
+      <label (click)="addDirection()" class="location" style=" border-radius:15px;text-align: center; ">   
+      </label>
+    </ion-button>
+
+    <ion-item>
+      <ion-label>Longitud </ion-label>
+      <ion-input [(ngModel)]="data.informacionCensado.longitud" type="number"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Latitud: </ion-label>
+      <ion-input [(ngModel)]="data.informacionCensado.latitud" type="number"></ion-input>
+    </ion-item>      
+  </div>    
+
+  </ion-card>
+  <ion-button style="margin: 10px;" (click)="crearNuevoResultado()">Guardar
+
+  </ion-button>
+</ion-content>

@@ -5,5 +5,5 @@
 Integrantes: 
 - Cueva Mateo
 - Tuquerres Marlon
-- Bryan Tandazo
-- Kevin Pulupa
+- Tandazo Bryan
+- Pulupa Kevin
